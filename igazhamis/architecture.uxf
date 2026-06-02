@@ -1,0 +1,79 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>432</x><y>456</y><w>264</w><h>168</h></coordinates><panel_attributes>SelectManager
+--
+-questionNumber: number
+- questions: QuestionType[]
+-questionAnswers: boolean[]
+- nextQuestionCallback: NextQuestionCallback
+- finishCallback: FinishCallback
+--
++ constructor(questions: QuestionType[])
++play(): void
++reset(): void
++nextQuestion(answer: boolean): void
+set nextQuestionCallback(value: NextQuestionCallback)
+set finishCallback(value: FinishCallback)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>504</x><y>40</y><w>208</w><h>80</h></coordinates><panel_attributes>ViewElement
+--
+- manager: SelectManager
+- container: HtmlDivElement
+--
++ constructor(manager: SelectManager)
++appendTo (parent: HtmlElement)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>504</x><y>144</y><w>208</w><h>88</h></coordinates><panel_attributes>PlayArea
+--
+-div: HtmlDivElement
+-manager: SelectManager
+--
++ replaceContent(parent: HtmlElement)
++ get manager()
++ get div()</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>344</x><y>264</y><w>208</w><h>80</h></coordinates><panel_attributes>CardArea
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>264</y><w>208</w><h>80</h></coordinates><panel_attributes>ResultArea
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>440</x><y>224</y><w>176</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>200;10;200;20;10;20;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>592</x><y>224</y><w>200</w><h>56</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;20;230;20;230;50</additional_attributes></element><element><id>Relation</id><coordinates><x>384</x><y>88</y><w>136</w><h>192</h></coordinates><panel_attributes>lt=&lt;.
+Példányosítja a
+nextQuestionCallbackben
+</panel_attributes><additional_attributes>10;220;10;10;150;10</additional_attributes></element><element><id>Relation</id><coordinates><x>704</x><y>88</y><w>200</w><h>192</h></coordinates><panel_attributes>lt=&lt;.
+Példányosítja a
+FinishCallbackben
+</panel_attributes><additional_attributes>130;220;130;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>160</x><y>152</y><w>176</w><h>48</h></coordinates><panel_attributes>NextQuestionCallback
+--
+(question: QuestionType): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>256</x><y>56</y><w>264</w><h>112</h></coordinates><panel_attributes>lt=&lt;.
+Implementálja</panel_attributes><additional_attributes>10;120;10;20;310;20</additional_attributes></element><element><id>Relation</id><coordinates><x>216</x><y>192</y><w>232</w><h>328</h></coordinates><panel_attributes>lt=&lt;-
+meghívja a nextQuestion, és a play</panel_attributes><additional_attributes>10;10;10;390;270;390</additional_attributes></element><element><id>Relation</id><coordinates><x>112</x><y>40</y><w>408</w><h>552</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>400;670;10;670;10;10;490;10</additional_attributes></element><element><id>Relation</id><coordinates><x>544</x><y>296</y><w>88</w><h>176</h></coordinates><panel_attributes>lt=&lt;-
+</panel_attributes><additional_attributes>90;200;90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>608</x><y>296</y><w>88</w><h>176</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;200;10;10;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>256</x><y>376</y><w>112</w><h>56</h></coordinates><panel_attributes>QuestionViewType
+--
+question: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>752</x><y>512</y><w>112</w><h>56</h></coordinates><panel_attributes>QuestionType
+--
++ question: string
++ valid: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>928</x><y>296</y><w>240</w><h>48</h></coordinates><panel_attributes>FinishCallback
+--
+(resultArray: QuestionResultViewType[]): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>952</x><y>408</y><w>152</w><h>56</h></coordinates><panel_attributes>QuestionResultViewType
+--
++ question: string
++ selected: boolean
++ rightAnswer: boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>704</x><y>56</y><w>352</w><h>248</h></coordinates><panel_attributes>lt=&lt;.
+Implementálja</panel_attributes><additional_attributes>420;290;420;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>688</x><y>536</y><w>80</w><h>40</h></coordinates><panel_attributes>lt=&lt;-
+m1=0..*
+</panel_attributes><additional_attributes>80;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>272</x><y>192</y><w>24</w><h>200</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;10;230</additional_attributes></element><element><id>Relation</id><coordinates><x>1008</x><y>336</y><w>24</w><h>88</h></coordinates><panel_attributes>lt=&lt;.</panel_attributes><additional_attributes>10;10;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>688</x><y>336</y><w>472</w><h>280</h></coordinates><panel_attributes>lt=&lt;-
+Hívja amikor elfogytak a kérdések</panel_attributes><additional_attributes>570;10;570;330;10;330</additional_attributes></element><element><id>UMLNote</id><coordinates><x>600</x><y>736</y><w>360</w><h>256</h></coordinates><panel_attributes>A PlayArea leszármazottjainak tetszőleges privát függvények létrehozhatóak
+A Card Areaban két gomb van, ugyanazzal a felirattal,
+a különbség hogy az egyik gombra kattintva false-al, 
+a másikra kattintva true-val hívjuk meg a manager nexquestion függvényét
+A resultArea kirendereli az összes választ, és aszerint változtatja a 
+hátteret, hogy a felhasználó eltalálta-e vagy sem
+
+A ViewElement fejlécet (Igaz vagy Hamis?) nem rendereljük újra kérdésenként.
+
+A repleceContent függvénye a PlayArea-nak törli a bemeneti paraméter
+tartalmát, és hozzáfűzi a saját osztály div tartalmát.
+
+A felhasználó minden válaszát eltároljuk a questionAnswers tömbben,
+és amennyiben elfogytak a kérdések, összeállítunk egy
+QuestionResultView tömböt, ami alapján megjelenítjük az 
+eredmény képernyőt.
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLNote</id><coordinates><x>208</x><y>688</y><w>360</w><h>256</h></coordinates><panel_attributes>A PlayArea leszármazások nélkül is megvalósítható, így egy egyszerűbb osztálystruktúrát, 
+de bonyolultabb és hosszabb kódot kapunk
+
+bg=blue</panel_attributes><additional_attributes></additional_attributes></element></diagram>
